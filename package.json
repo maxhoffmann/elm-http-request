@@ -1,0 +1,16 @@
+{
+  "name": "elm-http-request",
+  "version": "1.0.0",
+  "description": "Example how to do HTTP Requests in Elm",
+  "main": "index.js",
+  "scripts": {
+    "elm": "elm",
+    "watch": "chokidar '**/*.elm' -c 'elm make Main.elm --output elm.compiled.js --warn'"
+  },
+  "author": "Maximilian Hoffmann",
+  "license": "MIT",
+  "devDependencies": {
+    "chokidar-cli": "^1.2.0",
+    "elm": "^0.16.0"
+  }
+}
