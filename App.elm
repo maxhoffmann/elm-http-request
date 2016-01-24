@@ -4,7 +4,7 @@ import Signal exposing (..)
 import Html exposing (..)
 import Html.Events exposing (onClick)
 import Effects exposing (Effects, Never)
-import Http exposing (get)
+import Http
 import Json.Decode as Json exposing ((:=))
 import Task
 
