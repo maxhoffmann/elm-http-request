@@ -53,7 +53,7 @@ view : Address Action -> Model -> Html
 view address model =
   div [] [
     button [ onClick address RequestIP ] [ text "Get IP address" ],
-    div [] [ text model.ip ]
+    p [] [ text model.ip ]
   ]
 
 
