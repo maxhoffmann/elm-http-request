@@ -1,4 +1,4 @@
-module App where
+module App (..) where
 
 import Signal exposing (..)
 import Html exposing (..)
@@ -8,56 +8,64 @@ import Http
 import Json.Decode as Json exposing ((:=))
 import Task
 
+
 -- MODEL
 
+
 type alias Model =
-  {
-    ip: String
+  { ip : String
   }
 
-init : (Model, Effects Action)
+
+init : ( Model, Effects Action )
 init =
-  (
-    {
-      ip = "Unknown"
-    },
-    Effects.none
+  ( { ip = "Unknown"
+    }
+  , Effects.none
   )
 
+
+
 --- UPDATE
+
 
 type Action
   = DoNothing
   | RequestIP
   | UpdateIP (Maybe String)
 
-update: Action -> Model -> (Model, Effects Action)
+
+update : Action -> Model -> ( Model, Effects Action )
 update action model =
   case action of
-
     DoNothing ->
-      (model, Effects.none)
+      ( model, Effects.none )
 
     RequestIP ->
-      (model, requestIP)
+      ( model, requestIP )
 
     UpdateIP ip ->
-      (
-        { model | ip = (Maybe.withDefault "No response" ip) },
-        Effects.none
+      ( { model | ip = (Maybe.withDefault "No response" ip) }
+      , Effects.none
       )
+
+
 
 -- VIEW
 
+
 view : Address Action -> Model -> Html
 view address model =
-  div [] [
-    button [ onClick address RequestIP ] [ text "Get IP address" ],
-    p [] [ text model.ip ]
-  ]
+  div
+    []
+    [ button [ onClick address RequestIP ] [ text "Get IP address" ]
+    , p [] [ text model.ip ]
+    ]
+
 
 
 --- Effects
+
 
 requestIP : Effects Action
 requestIP =
